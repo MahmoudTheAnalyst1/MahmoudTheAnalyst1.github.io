@@ -3,252 +3,1286 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Mahmoud Mohamed Naguib | Data Analyst</title>
 
+    <meta name="description"
+          content="Mahmoud Mohamed Naguib - Data Analyst Portfolio">
+
     <style>
+
+        /* =========================
+           GENERAL
+        ========================== */
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            scroll-behavior: smooth;
         }
 
         body {
-            font-family: Arial, sans-serif;
-            background: #f5f7fa;
-            color: #222;
-            line-height: 1.6;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #08111f;
+            color: #e5edf7;
+            line-height: 1.7;
         }
 
-        header {
-            background: #111827;
-            color: white;
-            padding: 80px 20px;
-            text-align: center;
+        a {
+            text-decoration: none;
         }
 
-        header h1 {
-            font-size: 42px;
-            margin-bottom: 10px;
+        .container {
+            width: 90%;
+            max-width: 1150px;
+            margin: auto;
         }
 
-        header p {
-            font-size: 20px;
-            color: #d1d5db;
-        }
+
+        /* =========================
+           NAVBAR
+        ========================== */
 
         nav {
-            background: white;
-            padding: 15px;
-            text-align: center;
             position: sticky;
             top: 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            z-index: 1000;
+
+            background: rgba(8, 17, 31, 0.95);
+            backdrop-filter: blur(10px);
+
+            border-bottom: 1px solid #1e334d;
         }
 
-        nav a {
-            color: #111827;
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: bold;
+        .nav-container {
+            height: 75px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #38bdf8;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #cbd5e1;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #38bdf8;
+        }
+
+
+        /* =========================
+           HERO
+        ========================== */
+
+        .hero {
+            min-height: 90vh;
+
+            display: flex;
+            align-items: center;
+
+            position: relative;
+            overflow: hidden;
+
+            background:
+                radial-gradient(circle at 20% 30%, #123456 0%, transparent 30%),
+                radial-gradient(circle at 80% 70%, #102a43 0%, transparent 30%),
+                #08111f;
+        }
+
+        .hero::before {
+            content: "";
+
+            position: absolute;
+
+            width: 450px;
+            height: 450px;
+
+            border: 1px solid #1e4b70;
+            border-radius: 50%;
+
+            right: -120px;
+            top: 100px;
+
+            box-shadow:
+                0 0 60px rgba(56, 189, 248, 0.12),
+                inset 0 0 60px rgba(56, 189, 248, 0.05);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+
+            max-width: 800px;
+        }
+
+        .small-title {
+            color: #38bdf8;
+            font-size: 16px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-size: clamp(45px, 7vw, 78px);
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #38bdf8;
+        }
+
+        .hero h2 {
+            font-size: 28px;
+            color: #cbd5e1;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            max-width: 700px;
+            color: #94a3b8;
+            font-size: 18px;
+            margin-bottom: 35px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 13px 25px;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: #38bdf8;
+            color: #06111d;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(56, 189, 248, 0.25);
+        }
+
+        .btn-secondary {
+            border: 1px solid #31506d;
+            color: #e2e8f0;
+            background: rgba(255,255,255,0.02);
+        }
+
+        .btn-secondary:hover {
+            border-color: #38bdf8;
+            color: #38bdf8;
+        }
+
+
+        /* =========================
+           SECTIONS
+        ========================== */
 
         section {
-            max-width: 1100px;
-            margin: auto;
-            padding: 60px 20px;
+            padding: 100px 0;
         }
 
-        h2 {
-            text-align: center;
-            margin-bottom: 35px;
-            font-size: 30px;
+        .section-header {
+            margin-bottom: 50px;
         }
 
-        .about {
-            text-align: center;
-            max-width: 800px;
-            margin: auto;
+        .section-label {
+            color: #38bdf8;
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
-        .skills {
+        .section-header h2 {
+            font-size: 42px;
+            margin-top: 8px;
+        }
+
+        .section-header p {
+            color: #94a3b8;
+            max-width: 650px;
+            margin-top: 10px;
+        }
+
+
+        /* =========================
+           ABOUT
+        ========================== */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text p {
+            color: #a9b8c9;
+            font-size: 17px;
+            margin-bottom: 18px;
+        }
+
+        .about-card {
+            padding: 30px;
+
+            background: #0d1b2c;
+            border: 1px solid #1c344e;
+            border-radius: 15px;
+
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .about-card h3 {
+            margin-bottom: 20px;
+            color: #f1f5f9;
+        }
+
+        .about-item {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 12px;
+            justify-content: space-between;
+
+            padding: 12px 0;
+
+            border-bottom: 1px solid #1e334a;
         }
 
-        .skill {
-            background: white;
-            padding: 12px 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        .about-item:last-child {
+            border-bottom: none;
+        }
+
+        .about-item span:first-child {
+            color: #94a3b8;
+        }
+
+        .about-item span:last-child {
+            color: #38bdf8;
             font-weight: bold;
         }
 
-        .projects {
+
+        /* =========================
+           SKILLS
+        ========================== */
+
+        .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: #0d1b2c;
+
+            border: 1px solid #1c344e;
+            border-radius: 14px;
+
+            padding: 28px 20px;
+
+            text-align: center;
+
+            transition: 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-7px);
+            border-color: #38bdf8;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+        }
+
+        .skill-icon {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .skill-card h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .skill-card p {
+            color: #8495a9;
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           PROJECTS
+        ========================== */
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
             gap: 25px;
         }
 
-        .project {
-            background: white;
+        .project-card {
+            background: #0d1b2c;
+
+            border: 1px solid #1c344e;
+            border-radius: 15px;
+
+            overflow: hidden;
+
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            border-color: #38bdf8;
+        }
+
+        .project-top {
+            height: 150px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background:
+                linear-gradient(135deg, #10253b, #0b1727);
+
+            font-size: 50px;
+        }
+
+        .project-content {
             padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
         }
 
-        .project h3 {
-            margin-bottom: 12px;
+        .project-content h3 {
+            font-size: 21px;
+            margin-bottom: 10px;
         }
 
-        .project p {
-            margin-bottom: 15px;
-            color: #555;
+        .project-content p {
+            color: #94a3b8;
+            font-size: 14px;
+            margin-bottom: 18px;
         }
 
-        .project a {
-            text-decoration: none;
+        .tools {
+            display: flex;
+            gap: 7px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .tool {
+            background: #12283e;
+            color: #38bdf8;
+
+            padding: 5px 10px;
+
+            border-radius: 5px;
+
+            font-size: 12px;
+        }
+
+        .project-link {
+            color: #38bdf8;
             font-weight: bold;
+            font-size: 14px;
         }
 
-        .contact {
+
+        /* =========================
+           CONTACT
+        ========================== */
+
+        .contact-box {
             text-align: center;
+
+            padding: 70px 30px;
+
+            background:
+                linear-gradient(135deg, #0d1e31, #0b1727);
+
+            border: 1px solid #1e3a56;
+            border-radius: 20px;
         }
 
-        .contact a {
-            display: inline-block;
-            margin: 10px;
-            text-decoration: none;
-            font-weight: bold;
+        .contact-box h2 {
+            font-size: 42px;
+            margin-bottom: 15px;
         }
+
+        .contact-box p {
+            color: #94a3b8;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            padding: 12px 22px;
+
+            border: 1px solid #31506d;
+            border-radius: 8px;
+
+            color: #e2e8f0;
+
+            transition: 0.3s;
+        }
+
+        .contact-link:hover {
+            color: #38bdf8;
+            border-color: #38bdf8;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================== */
 
         footer {
-            background: #111827;
-            color: white;
+            border-top: 1px solid #172b42;
+
+            padding: 25px 0;
+
             text-align: center;
-            padding: 25px;
+
+            color: #64748b;
+            font-size: 14px;
         }
+
+
+        /* =========================
+           MOBILE
+        ========================== */
+
+        @media (max-width: 900px) {
+
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+
+        @media (max-width: 600px) {
+
+            .nav-container {
+                height: auto;
+                padding: 18px 0;
+
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-links {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero {
+                min-height: 80vh;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .hero h2 {
+                font-size: 23px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            section {
+                padding: 70px 0;
+            }
+
+            .section-header h2 {
+                font-size: 34px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
     </style>
 </head>
 
+
 <body>
 
-    <header>
-        <h1>Mahmoud Mohamed Naguib</h1>
-        <p>Data Analyst | Excel | Power BI | SQL | Python | Tableau</p>
-    </header>
+
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
 
     <nav>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
+
+        <div class="container nav-container">
+
+            <div class="logo">
+                Mahmoud Naguib
+            </div>
+
+            <ul class="nav-links">
+
+                <li>
+                    <a href="#home">Home</a>
+                </li>
+
+                <li>
+                    <a href="#about">About</a>
+                </li>
+
+                <li>
+                    <a href="#skills">Skills</a>
+                </li>
+
+                <li>
+                    <a href="#projects">Projects</a>
+                </li>
+
+                <li>
+                    <a href="#contact">Contact</a>
+                </li>
+
+            </ul>
+
+        </div>
+
     </nav>
 
-    <section id="about">
-        <h2>About Me</h2>
 
-        <div class="about">
-            <p>
-                I am a Data Analyst interested in transforming raw data into
-                meaningful insights and interactive dashboards.
-                I work with Excel, Power BI, SQL, Python, Pandas, Tableau,
-                Power Query and ETL processes.
-            </p>
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <header class="hero" id="home">
+
+        <div class="container">
+
+            <div class="hero-content">
+
+                <div class="small-title">
+                    DATA ANALYST PORTFOLIO
+                </div>
+
+                <h1>
+                    Mahmoud Mohamed
+                    <span>Naguib</span>
+                </h1>
+
+                <h2>
+                    Data Analyst
+                </h2>
+
+                <p>
+                    I transform raw data into meaningful insights,
+                    interactive dashboards, and clear business reports
+                    using modern data analysis tools.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="#projects"
+                       class="btn btn-primary">
+                        View My Projects
+                    </a>
+
+                    <a href="https://github.com/MahmoudTheAnalyst1"
+                       target="_blank"
+                       class="btn btn-secondary">
+                        GitHub
+                    </a>
+
+                </div>
+
+            </div>
+
         </div>
+
+    </header>
+
+
+
+    <!-- =========================
+         ABOUT
+    ========================== -->
+
+    <section id="about">
+
+        <div class="container">
+
+            <div class="section-header">
+
+                <div class="section-label">
+                    About Me
+                </div>
+
+                <h2>
+                    Turning Data Into Insights
+                </h2>
+
+            </div>
+
+
+            <div class="about-grid">
+
+
+                <div class="about-text">
+
+                    <p>
+                        I am a Data Analyst passionate about transforming
+                        raw data into meaningful insights that can help
+                        businesses understand their performance and
+                        make better decisions.
+                    </p>
+
+                    <p>
+                        My work includes data cleaning, data preparation,
+                        analysis, visualization, and building interactive
+                        dashboards.
+                    </p>
+
+                    <p>
+                        I enjoy working with real-world datasets and
+                        presenting complex information in a simple,
+                        clear, and useful way.
+                    </p>
+
+                </div>
+
+
+                <div class="about-card">
+
+                    <h3>
+                        Data Analyst Profile
+                    </h3>
+
+                    <div class="about-item">
+                        <span>Focus</span>
+                        <span>Data Analysis</span>
+                    </div>
+
+                    <div class="about-item">
+                        <span>BI</span>
+                        <span>Power BI</span>
+                    </div>
+
+                    <div class="about-item">
+                        <span>Programming</span>
+                        <span>Python</span>
+                    </div>
+
+                    <div class="about-item">
+                        <span>Database</span>
+                        <span>SQL</span>
+                    </div>
+
+                    <div class="about-item">
+                        <span>Visualization</span>
+                        <span>Tableau</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
     </section>
+
+
+
+    <!-- =========================
+         SKILLS
+    ========================== -->
 
     <section id="skills">
-        <h2>Skills</h2>
 
-        <div class="skills">
-            <div class="skill">Excel</div>
-            <div class="skill">Power BI</div>
-            <div class="skill">SQL</div>
-            <div class="skill">Python</div>
-            <div class="skill">Pandas</div>
-            <div class="skill">Tableau</div>
-            <div class="skill">Power Query</div>
-            <div class="skill">ETL</div>
-            <div class="skill">Data Analysis</div>
+        <div class="container">
+
+            <div class="section-header">
+
+                <div class="section-label">
+                    Skills
+                </div>
+
+                <h2>
+                    Tools I Work With
+                </h2>
+
+                <p>
+                    Technologies and tools I use for data cleaning,
+                    analysis, visualization, and business intelligence.
+                </p>
+
+            </div>
+
+
+            <div class="skills-grid">
+
+
+                <div class="skill-card">
+
+                    <div class="skill-icon">
+                        📊
+                    </div>
+
+                    <h3>
+                        Excel
+                    </h3>
+
+                    <p>
+                        Data analysis, formulas,
+                        reports and dashboards.
+                    </p>
+
+                </div>
+
+
+                <div class="skill-card">
+
+                    <div class="skill-icon">
+                        📈
+                    </div>
+
+                    <h3>
+                        Power BI
+                    </h3>
+
+                    <p>
+                        Interactive dashboards,
+                        KPIs and visualization.
+                    </p>
+
+                </div>
+
+
+                <div class="skill-card">
+
+                    <div class="skill-icon">
+                        🐍
+                    </div>
+
+                    <h3>
+                        Python
+                    </h3>
+
+                    <p>
+                        Data analysis and
+                        automation.
+                    </p>
+
+                </div>
+
+
+                <div class="skill-card">
+
+                    <div class="skill-icon">
+                        🧹
+                    </div>
+
+                    <h3>
+                        Pandas
+                    </h3>
+
+                    <p>
+                        Data cleaning,
+                        transformation and analysis.
+                    </p>
+
+                </div>
+
+
+                <div class="skill-card">
+
+                    <div class="skill-icon">
+                        🗄️
+                    </div>
+
+                    <h3>
+                        SQL
+                    </h3>
+
+                    <p>
+                        Querying and analyzing
+                        structured data.
+                    </p>
+
+                </div>
+
+
+                <div class="skill-card">
+
+                    <div class="skill-icon">
+                        📉
+                    </div>
+
+                    <h3>
+                        Tableau
+                    </h3>
+
+                    <p>
+                        Data visualization and
+                        interactive reporting.
+                    </p>
+
+                </div>
+
+
+                <div class="skill-card">
+
+                    <div class="skill-icon">
+                        ⚙️
+                    </div>
+
+                    <h3>
+                        Power Query
+                    </h3>
+
+                    <p>
+                        Data preparation and
+                        transformation.
+                    </p>
+
+                </div>
+
+
+                <div class="skill-card">
+
+                    <div class="skill-icon">
+                        🔄
+                    </div>
+
+                    <h3>
+                        ETL
+                    </h3>
+
+                    <p>
+                        Extract, transform,
+                        and load data.
+                    </p>
+
+                </div>
+
+
+            </div>
+
         </div>
+
     </section>
+
+
+
+    <!-- =========================
+         PROJECTS
+    ========================== -->
 
     <section id="projects">
-        <h2>Projects</h2>
 
-        <div class="projects">
+        <div class="container">
 
-            <div class="project">
-                <h3>Customer Data Cleaning</h3>
+            <div class="section-header">
+
+                <div class="section-label">
+                    Portfolio
+                </div>
+
+                <h2>
+                    Featured Projects
+                </h2>
+
                 <p>
-                    Data cleaning and preprocessing project using Python and Pandas.
+                    Selected data analysis and dashboard projects.
                 </p>
 
-                <a href="https://github.com/MahmoudTheAnalyst1/Customer-Data-Cleaning-with-Pandas"
-                   target="_blank">
-                    View Project →
-                </a>
             </div>
 
-            <div class="project">
-                <h3>Salla Dashboard</h3>
-                <p>
-                    Interactive dashboard for analyzing business and sales data.
-                </p>
-            </div>
 
-            <div class="project">
-                <h3>Pharmacy Inventory Dashboard</h3>
-                <p>
-                    Dashboard for analyzing pharmacy inventory and warehouse data.
-                </p>
-            </div>
+            <div class="projects-grid">
 
-            <div class="project">
-                <h3>HR Dashboard</h3>
-                <p>
-                    Dashboard for analyzing HR and employee-related data.
-                </p>
-            </div>
 
-            <div class="project">
-                <h3>Sales Dashboard</h3>
-                <p>
-                    Interactive dashboard for sales analysis and KPIs.
-                </p>
-            </div>
+                <!-- Customer Data -->
 
-            <div class="project">
-                <h3>Adidas Dashboard</h3>
-                <p>
-                    Sales analysis dashboard with product details and interactive filtering.
-                </p>
+                <div class="project-card">
+
+                    <div class="project-top">
+                        🐍
+                    </div>
+
+                    <div class="project-content">
+
+                        <h3>
+                            Customer Data Cleaning
+                        </h3>
+
+                        <p>
+                            Data cleaning and preprocessing project
+                            using Python and Pandas.
+                        </p>
+
+                        <div class="tools">
+
+                            <span class="tool">
+                                Python
+                            </span>
+
+                            <span class="tool">
+                                Pandas
+                            </span>
+
+                            <span class="tool">
+                                Data Cleaning
+                            </span>
+
+                        </div>
+
+                        <a class="project-link"
+                           href="https://github.com/MahmoudTheAnalyst1/Customer-Data-Cleaning-with-Pandas"
+                           target="_blank">
+
+                            View Project →
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Salla -->
+
+                <div class="project-card">
+
+                    <div class="project-top">
+                        📊
+                    </div>
+
+                    <div class="project-content">
+
+                        <h3>
+                            Salla Dashboard
+                        </h3>
+
+                        <p>
+                            Interactive dashboard for analyzing
+                            business and sales performance.
+                        </p>
+
+                        <div class="tools">
+
+                            <span class="tool">
+                                Power BI
+                            </span>
+
+                            <span class="tool">
+                                Excel
+                            </span>
+
+                            <span class="tool">
+                                ETL
+                            </span>
+
+                        </div>
+
+                        <a class="project-link"
+                           href="#contact">
+
+                            Coming Soon →
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Pharmacy -->
+
+                <div class="project-card">
+
+                    <div class="project-top">
+                        💊
+                    </div>
+
+                    <div class="project-content">
+
+                        <h3>
+                            Pharmacy Inventory
+                        </h3>
+
+                        <p>
+                            Dashboard for analyzing inventory,
+                            warehouse and stock data.
+                        </p>
+
+                        <div class="tools">
+
+                            <span class="tool">
+                                Power BI
+                            </span>
+
+                            <span class="tool">
+                                Excel
+                            </span>
+
+                        </div>
+
+                        <a class="project-link"
+                           href="#contact">
+
+                            Coming Soon →
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- HR -->
+
+                <div class="project-card">
+
+                    <div class="project-top">
+                        👥
+                    </div>
+
+                    <div class="project-content">
+
+                        <h3>
+                            HR Dashboard
+                        </h3>
+
+                        <p>
+                            Interactive HR dashboard for analyzing
+                            employee and workforce data.
+                        </p>
+
+                        <div class="tools">
+
+                            <span class="tool">
+                                Power BI
+                            </span>
+
+                            <span class="tool">
+                                Excel
+                            </span>
+
+                        </div>
+
+                        <a class="project-link"
+                           href="#contact">
+
+                            Coming Soon →
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Sales -->
+
+                <div class="project-card">
+
+                    <div class="project-top">
+                        💰
+                    </div>
+
+                    <div class="project-content">
+
+                        <h3>
+                            Sales Dashboard
+                        </h3>
+
+                        <p>
+                            Sales performance dashboard focused
+                            on KPIs and business trends.
+                        </p>
+
+                        <div class="tools">
+
+                            <span class="tool">
+                                Power BI
+                            </span>
+
+                            <span class="tool">
+                                Excel
+                            </span>
+
+                        </div>
+
+                        <a class="project-link"
+                           href="#contact">
+
+                            Coming Soon →
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Adidas -->
+
+                <div class="project-card">
+
+                    <div class="project-top">
+                        📦
+                    </div>
+
+                    <div class="project-content">
+
+                        <h3>
+                            Adidas Sales Dashboard
+                        </h3>
+
+                        <p>
+                            Interactive sales analysis with product
+                            details, filtering and performance metrics.
+                        </p>
+
+                        <div class="tools">
+
+                            <span class="tool">
+                                Power BI
+                            </span>
+
+                            <span class="tool">
+                                Visualization
+                            </span>
+
+                        </div>
+
+                        <a class="project-link"
+                           href="#contact">
+
+                            Coming Soon →
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+
             </div>
 
         </div>
+
     </section>
+
+
+
+    <!-- =========================
+         CONTACT
+    ========================== -->
 
     <section id="contact">
-        <h2>Contact</h2>
 
-        <div class="contact">
-            <p>Let's connect and discuss data analysis projects.</p>
+        <div class="container">
 
-            <a href="https://github.com/MahmoudTheAnalyst1" target="_blank">
-                GitHub
-            </a>
+            <div class="contact-box">
 
-            <a href="#" target="_blank">
-                LinkedIn
-            </a>
+                <div class="section-label">
+                    Contact
+                </div>
+
+                <h2>
+                    Let's Connect
+                </h2>
+
+                <p>
+                    Interested in data analysis, dashboards,
+                    or freelance projects? Feel free to connect with me.
+                </p>
+
+                <div class="contact-links">
+
+                    <a class="contact-link"
+                       href="https://github.com/MahmoudTheAnalyst1"
+                       target="_blank">
+
+                        GitHub
+
+                    </a>
+
+                    <a class="contact-link"
+                       href="#"
+                       target="_blank">
+
+                        LinkedIn
+
+                    </a>
+
+                </div>
+
+            </div>
+
         </div>
+
     </section>
 
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
     <footer>
-        <p>© 2026 Mahmoud Mohamed Naguib | Data Analyst</p>
+
+        <div class="container">
+
+            © 2026 Mahmoud Mohamed Naguib · Data Analyst
+
+        </div>
+
     </footer>
+
 
 </body>
 </html>
