@@ -1,311 +1,1256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Mahmoud Naguib — Data Analyst portfolio showcasing Python, SQL, Excel and Power BI projects.">
+<title>Mahmoud Naguib | Data Analyst</title>
 
-<!-- =========================
-     PROJECTS
-========================= -->
+<style>
+:root {
+    --bg: #0b0c0b;
+    --panel: #111310;
+    --line: #292d25;
+    --text: #f2f3ed;
+    --muted: #a1a69a;
+    --accent: #c4f45b;
+    --sidebar: 250px;
+}
 
-<section id="projects">
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-    <div class="container">
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 30px;
+}
 
-        <div class="section-heading">
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: Inter, Arial, sans-serif;
+    line-height: 1.65;
+}
 
-            <div class="section-number">
-                03 / PROJECTS
-            </div>
+a {
+    color: inherit;
+    text-decoration: none;
+}
 
-            <div>
+/* SIDEBAR */
 
-                <h2>
-                    Selected<br>
-                    work.
-                </h2>
+.sidebar {
+    position: fixed;
+    inset: 0 auto 0 0;
+    width: var(--sidebar);
+    padding: 38px 28px;
+    background: #0e100d;
+    border-right: 1px solid var(--line);
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+}
 
-                <p>
-                    A collection of practical data analytics projects
-                    covering data cleaning, exploratory analysis,
-                    business intelligence, dashboards and web scraping.
-                </p>
+.brand {
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
 
-            </div>
+.brand span {
+    color: var(--accent);
+}
+
+.role-small {
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 3px;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+}
+
+.nav {
+    display: grid;
+    gap: 8px;
+    margin-top: 78px;
+}
+
+.nav a {
+    color: #969b8f;
+    font-size: 13px;
+    padding: 10px 12px;
+    border: 1px solid transparent;
+    transition: .2s;
+}
+
+.nav a:hover {
+    color: var(--accent);
+    border-color: var(--line);
+    background: var(--panel);
+}
+
+.side-bottom {
+    margin-top: auto;
+    color: #777d70;
+    font-size: 11px;
+}
+
+.status {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+    margin-right: 8px;
+}
+
+/* MAIN */
+
+main {
+    margin-left: var(--sidebar);
+    max-width: 1500px;
+    padding: 0 7.2%;
+}
+
+section {
+    padding: 100px 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.eyebrow {
+    color: var(--accent);
+    font-size: 11px;
+    letter-spacing: 2px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 650px;
+    display: flex;
+    align-items: center;
+    padding-top: 90px;
+    padding-bottom: 90px;
+}
+
+.hero h1 {
+    font-size: clamp(54px, 8vw, 105px);
+    line-height: .98;
+    letter-spacing: -6px;
+    font-weight: 800;
+    max-width: 900px;
+}
+
+.hero h1 span {
+    color: var(--accent);
+}
+
+.hero .job {
+    font-size: clamp(20px, 2.5vw, 30px);
+    color: #c5c9bd;
+    margin-top: 22px;
+    letter-spacing: 1px;
+}
+
+.hero-copy {
+    max-width: 610px;
+    color: var(--muted);
+    font-size: 15px;
+    margin-top: 26px;
+}
+
+.actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 34px;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 19px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .5px;
+    border: 1px solid var(--accent);
+    color: var(--bg);
+    background: var(--accent);
+    transition: .2s;
+}
+
+.btn:hover {
+    background: transparent;
+    color: var(--accent);
+}
+
+.btn.secondary {
+    background: transparent;
+    color: var(--text);
+    border-color: var(--line);
+}
+
+.btn.secondary:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+/* SECTION HEADINGS */
+
+.section-head {
+    display: grid;
+    grid-template-columns: 190px 1fr;
+    gap: 30px;
+    margin-bottom: 48px;
+}
+
+.section-no {
+    color: var(--accent);
+    font-size: 11px;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: clamp(38px, 5vw, 62px);
+    letter-spacing: -2.5px;
+    line-height: 1.05;
+    margin-bottom: 18px;
+}
+
+.section-intro {
+    color: var(--muted);
+    max-width: 650px;
+    font-size: 14px;
+}
+
+/* ABOUT */
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1.1fr .9fr;
+    gap: 60px;
+}
+
+.about-text {
+    color: #b5baae;
+    font-size: 15px;
+    max-width: 700px;
+}
+
+.about-text p + p {
+    margin-top: 18px;
+}
+
+.fact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.fact {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    padding: 20px;
+}
+
+.fact strong {
+    display: block;
+    color: var(--accent);
+    font-size: 21px;
+    margin-bottom: 5px;
+}
+
+.fact span {
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* SKILLS */
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.skill {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    padding: 20px 18px;
+    min-height: 105px;
+}
+
+.skill b {
+    font-size: 14px;
+    display: block;
+    margin-bottom: 6px;
+}
+
+.skill span {
+    font-size: 11px;
+    color: var(--muted);
+}
+
+/* PROJECTS */
+
+.projects {
+    display: grid;
+    gap: 18px;
+}
+
+.project {
+    display: grid;
+    grid-template-columns: 44% 1fr;
+    gap: 28px;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    padding: 14px;
+    transition: .25s;
+}
+
+.project:hover {
+    border-color: #657d37;
+    transform: translateY(-2px);
+}
+
+.project-media {
+    min-height: 220px;
+    background: linear-gradient(135deg, #1b2415, #11130f);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.project-media img {
+    width: 100%;
+    height: 100%;
+    min-height: 220px;
+    max-height: 310px;
+    object-fit: cover;
+    display: block;
+    transition: transform .5s;
+}
+
+.project:hover .project-media img {
+    transform: scale(1.025);
+}
+
+.cover {
+    padding: 30px;
+    text-align: center;
+    width: 100%;
+}
+
+.cover-label {
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--accent);
+    text-transform: uppercase;
+}
+
+.cover strong {
+    display: block;
+    font-size: clamp(25px, 3vw, 42px);
+    letter-spacing: -2px;
+    line-height: 1.05;
+    margin: 15px 0;
+}
+
+.cover small {
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.project-info {
+    padding: 17px 18px 17px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.project-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    align-items: center;
+    margin-bottom: 13px;
+}
+
+.project-number {
+    color: var(--accent);
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+
+.project h3 {
+    font-size: clamp(20px, 2.4vw, 28px);
+    line-height: 1.2;
+    letter-spacing: -.8px;
+    margin-bottom: 12px;
+}
+
+.project p {
+    color: var(--muted);
+    font-size: 13px;
+    max-width: 620px;
+}
+
+.tags {
+    display: flex;
+    gap: 7px;
+    flex-wrap: wrap;
+    margin-top: 18px;
+}
+
+.tag {
+    border: 1px solid #34392e;
+    padding: 4px 8px;
+    color: #b0b6a7;
+    font-size: 10px;
+}
+
+.project-link {
+    display: inline-block;
+    color: var(--accent);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    margin-top: 20px;
+    width: max-content;
+}
+
+.project-link:hover {
+    text-decoration: underline;
+}
+
+/* WORKFLOW */
+
+.workflow {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.step {
+    border-top: 1px solid var(--accent);
+    padding: 18px 16px 12px;
+    background: var(--panel);
+}
+
+.step small {
+    color: var(--accent);
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.step h3 {
+    font-size: 17px;
+    margin: 14px 0 8px;
+}
+
+.step p {
+    font-size: 12px;
+    color: var(--muted);
+}
+
+/* CONTACT */
+
+.contact-panel {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    padding: 38px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+}
+
+.contact-panel h3 {
+    font-size: clamp(25px, 4vw, 40px);
+    letter-spacing: -1.5px;
+}
+
+.contact-panel p {
+    color: var(--muted);
+    font-size: 13px;
+    margin-top: 8px;
+}
+
+/* FOOTER */
+
+footer {
+    padding: 30px 0 45px;
+    color: #70766a;
+    font-size: 11px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 1000px) {
+    :root {
+        --sidebar: 205px;
+    }
+
+    main {
+        padding: 0 5%;
+    }
+
+    .section-head {
+        grid-template-columns: 130px 1fr;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .workflow {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width: 700px) {
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        padding: 18px 20px;
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+        display: flex;
+        gap: 4px;
+        overflow-x: auto;
+        margin-top: 17px;
+        padding-bottom: 2px;
+    }
+
+    .nav a {
+        white-space: nowrap;
+        padding: 7px 9px;
+        font-size: 11px;
+    }
+
+    .side-bottom {
+        display: none;
+    }
+
+    main {
+        margin-left: 0;
+        padding: 0 20px;
+    }
+
+    .hero {
+        min-height: 540px;
+        padding: 80px 0;
+    }
+
+    .hero h1 {
+        letter-spacing: -3px;
+    }
+
+    .section-head {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .project {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .project-media,
+    .project-media img {
+        min-height: 190px;
+    }
+
+    .project-info {
+        padding: 12px 8px 18px;
+    }
+
+    .contact-panel {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 25px;
+    }
+
+    .workflow {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    footer {
+        flex-direction: column;
+    }
+}
+
+@media(max-width: 390px) {
+    .skills-grid,
+    .workflow {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: 50px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<aside class="sidebar">
+
+    <a class="brand" href="#home">MN<span>.</span></a>
+
+    <div class="role-small">Data Analyst</div>
+
+    <nav class="nav" aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#workflow">Workflow</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="side-bottom">
+        <span class="status"></span>Open to opportunities
+        <br><br>
+        © 2026 Mahmoud Naguib
+    </div>
+
+</aside>
+
+<main>
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+    <div>
+
+        <div class="eyebrow">PORTFOLIO / 2026</div>
+
+        <h1>
+            Mahmoud<br>
+            <span>Naguib.</span>
+        </h1>
+
+        <div class="job">Data Analyst</div>
+
+        <p class="hero-copy">
+            I turn raw data into clear insights and practical business
+            decisions through data analysis, visualization, and
+            interactive dashboards.
+        </p>
+
+        <div class="actions">
+            <a class="btn" href="#projects">Explore Projects ↘</a>
+
+            <a class="btn secondary"
+               href="https://github.com/MahmoudTheAnalyst1"
+               target="_blank"
+               rel="noopener noreferrer">
+                GitHub Profile ↗
+            </a>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section id="about">
+
+    <div class="section-head">
+
+        <div class="section-no">01 / ABOUT</div>
+
+        <div>
+            <h2>Curious about<br>the story in data.</h2>
+
+            <p class="section-intro">
+                A data analyst focused on transforming data into
+                meaningful information that supports better decisions.
+            </p>
+        </div>
+
+    </div>
+
+    <div class="about-grid">
+
+        <div class="about-text">
+
+            <p>
+                I work with data across the analysis process —
+                from cleaning and preparation to exploration,
+                visualization, and communicating findings.
+            </p>
+
+            <p>
+                My projects use Python, SQL, Excel, and Power BI
+                to explore business questions, understand performance,
+                and present insights in a clear and practical way.
+            </p>
 
         </div>
 
-
-        <div class="projects">
-
-            <!-- PROJECT 01 -->
-
-            <article class="project">
-
-                <div class="project-number">01</div>
-
-                <div class="project-info">
-
-                    <h3>Global Superstore Business Analysis</h3>
-
-                    <p>
-                        Analyzed the Global Superstore dataset using
-                        Python to explore business performance,
-                        identify patterns and generate useful insights.
-                    </p>
-
-                    <div class="tools">
-                        <span class="tool">Python</span>
-                        <span class="tool">Pandas</span>
-                        <span class="tool">Matplotlib</span>
-                        <span class="tool">EDA</span>
-                    </div>
-
-                </div>
-
-                <div class="project-action">
-
-                    <a href="https://github.com/MahmoudTheAnalyst1/Global-Superstore-Business-Analysis"
-                       target="_blank"
-                       rel="noopener noreferrer"
-                       class="project-link">
-                        View Project ↗
-                    </a>
-
-                </div>
-
-            </article>
-
-
-            <!-- PROJECT 02 -->
-
-            <article class="project">
-
-                <div class="project-number">02</div>
-
-                <div class="project-info">
-
-                    <h3>Superstore Sales &amp; Profitability Dashboard</h3>
-
-                    <p>
-                        Developed a Power BI dashboard to analyze
-                        Superstore sales and profitability, helping
-                        explore business performance through interactive
-                        visualizations.
-                    </p>
-
-                    <div class="tools">
-                        <span class="tool">Power BI</span>
-                        <span class="tool">Data Visualization</span>
-                        <span class="tool">Business Intelligence</span>
-                    </div>
-
-                </div>
-
-                <div class="project-action">
-
-                    <a href="https://github.com/MahmoudTheAnalyst1/Superstore-Sales-Profitability-Dashboard"
-                       target="_blank"
-                       rel="noopener noreferrer"
-                       class="project-link">
-                        View Project ↗
-                    </a>
-
-                </div>
-
-            </article>
-
-
-            <!-- PROJECT 03 -->
-
-            <article class="project">
-
-                <div class="project-number">03</div>
-
-                <div class="project-info">
-
-                    <h3>Adidas Sales Performance Dashboard</h3>
-
-                    <p>
-                        Created an interactive Power BI dashboard
-                        to explore Adidas sales performance and
-                        present key business metrics through
-                        data visualization.
-                    </p>
-
-                    <div class="tools">
-                        <span class="tool">Power BI</span>
-                        <span class="tool">Dashboard Design</span>
-                        <span class="tool">Data Analysis</span>
-                    </div>
-
-                </div>
-
-                <div class="project-action">
-
-                    <a href="https://github.com/MahmoudTheAnalyst1/Adidas-Sales-Performance-Dashboard-Power-BI"
-                       target="_blank"
-                       rel="noopener noreferrer"
-                       class="project-link">
-                        View Project ↗
-                    </a>
-
-                </div>
-
-            </article>
-
-
-            <!-- PROJECT 04 -->
-
-            <article class="project">
-
-                <div class="project-number">04</div>
-
-                <div class="project-info">
-
-                    <h3>Amazon Web Scraping</h3>
-
-                    <p>
-                        Collected product information from Amazon
-                        using Python web scraping techniques and
-                        organized the extracted data for further use.
-                    </p>
-
-                    <div class="tools">
-                        <span class="tool">Python</span>
-                        <span class="tool">Requests</span>
-                        <span class="tool">BeautifulSoup</span>
-                        <span class="tool">CSV</span>
-                    </div>
-
-                </div>
-
-                <div class="project-action">
-
-                    <a href="https://github.com/MahmoudTheAnalyst1/Amazon-Web-Scraping"
-                       target="_blank"
-                       rel="noopener noreferrer"
-                       class="project-link">
-                        View Project ↗
-                    </a>
-
-                </div>
-
-            </article>
-
-
-            <!-- PROJECT 05 -->
-
-            <article class="project">
-
-                <div class="project-number">05</div>
-
-                <div class="project-info">
-
-                    <h3>Superstore Sales Analysis</h3>
-
-                    <p>
-                        Analyzed Superstore sales data using Python
-                        to explore sales patterns and present findings
-                        through data analysis and visualizations.
-                    </p>
-
-                    <div class="tools">
-                        <span class="tool">Python</span>
-                        <span class="tool">Pandas</span>
-                        <span class="tool">Matplotlib</span>
-                        <span class="tool">Data Analysis</span>
-                    </div>
-
-                </div>
-
-                <div class="project-action">
-
-                    <a href="https://github.com/MahmoudTheAnalyst1/Superstore-Sales-Analysis"
-                       target="_blank"
-                       rel="noopener noreferrer"
-                       class="project-link">
-                        View Project ↗
-                    </a>
-
-                </div>
-
-            </article>
-
-
-            <!-- PROJECT 06 -->
-
-            <article class="project">
-
-                <div class="project-number">06</div>
-
-                <div class="project-info">
-
-                    <h3>Movies Data Analysis</h3>
-
-                    <p>
-                        Explored and analyzed movie data using Python,
-                        working with different variables to discover
-                        patterns and create data visualizations.
-                    </p>
-
-                    <div class="tools">
-                        <span class="tool">Python</span>
-                        <span class="tool">Pandas</span>
-                        <span class="tool">NumPy</span>
-                        <span class="tool">Matplotlib</span>
-                    </div>
-
-                </div>
-
-                <div class="project-action">
-
-                    <a href="https://github.com/MahmoudTheAnalyst1/Movies-Data-Analysis"
-                       target="_blank"
-                       rel="noopener noreferrer"
-                       class="project-link">
-                        View Project ↗
-                    </a>
-
-                </div>
-
-            </article>
-
-
-            <!-- PROJECT 07 -->
-
-            <article class="project">
-
-                <div class="project-number">07</div>
-
-                <div class="project-info">
-
-                    <h3>Customer Data Cleaning with Pandas</h3>
-
-                    <p>
-                        Cleaned and prepared customer data using
-                        Python and Pandas, handling missing values,
-                        inconsistent phone numbers and address data.
-                    </p>
-
-                    <div class="tools">
-                        <span class="tool">Python</span>
-                        <span class="tool">Pandas</span>
-                        <span class="tool">Data Cleaning</span>
-                    </div>
-
-                </div>
-
-                <div class="project-action">
-
-                    <a href="https://github.com/MahmoudTheAnalyst1/Customer-Data-Cleaning-with-Pandas"
-                       target="_blank"
-                       rel="noopener noreferrer"
-                       class="project-link">
-                        View Project ↗
-                    </a>
-
-                </div>
-
-            </article>
+        <div class="fact-grid">
+
+            <div class="fact">
+                <strong>Python</strong>
+                <span>Analysis &amp; cleaning</span>
+            </div>
+
+            <div class="fact">
+                <strong>Power BI</strong>
+                <span>Dashboards &amp; BI</span>
+            </div>
+
+            <div class="fact">
+                <strong>SQL</strong>
+                <span>Data querying</span>
+            </div>
+
+            <div class="fact">
+                <strong>Excel</strong>
+                <span>Reporting &amp; analysis</span>
+            </div>
 
         </div>
 
     </div>
 
 </section>
+
+<!-- SKILLS -->
+
+<section id="skills">
+
+    <div class="section-head">
+
+        <div class="section-no">02 / SKILLS</div>
+
+        <div>
+            <h2>Tools I work with.</h2>
+
+            <p class="section-intro">
+                A practical toolkit for preparing, analyzing,
+                and presenting data.
+            </p>
+        </div>
+
+    </div>
+
+    <div class="skills-grid">
+
+        <div class="skill">
+            <b>Python</b>
+            <span>Pandas · NumPy</span>
+        </div>
+
+        <div class="skill">
+            <b>Power BI</b>
+            <span>DAX · Dashboards</span>
+        </div>
+
+        <div class="skill">
+            <b>SQL</b>
+            <span>Queries · Data extraction</span>
+        </div>
+
+        <div class="skill">
+            <b>Excel</b>
+            <span>Analysis · Reporting</span>
+        </div>
+
+        <div class="skill">
+            <b>Power Query</b>
+            <span>Data transformation</span>
+        </div>
+
+        <div class="skill">
+            <b>Tableau</b>
+            <span>Data visualization</span>
+        </div>
+
+        <div class="skill">
+            <b>ETL</b>
+            <span>Extract · Transform · Load</span>
+        </div>
+
+        <div class="skill">
+            <b>Data Analysis</b>
+            <span>EDA · Insights</span>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- PROJECTS -->
+
+<section id="projects">
+
+    <div class="section-head">
+
+        <div class="section-no">03 / PROJECTS</div>
+
+        <div>
+            <h2>Selected<br>work.</h2>
+
+            <p class="section-intro">
+                A collection of practical data analytics projects
+                covering data cleaning, exploratory analysis,
+                business intelligence, dashboards, and web scraping.
+            </p>
+        </div>
+
+    </div>
+
+    <div class="projects">
+
+        <!-- PROJECT 01 -->
+
+        <article class="project">
+
+            <div class="project-media">
+                <div class="cover">
+                    <span class="cover-label">Python / EDA</span>
+                    <strong>GLOBAL<br>SUPERSTORE</strong>
+                    <small>Business performance analysis</small>
+                </div>
+            </div>
+
+            <div class="project-info">
+
+                <div class="project-top">
+                    <span class="project-number">01 / ANALYSIS</span>
+                </div>
+
+                <h3>Global Superstore Business Analysis</h3>
+
+                <p>
+                    Analyzed the Global Superstore dataset using
+                    Python to explore business performance,
+                    identify patterns, and generate useful insights.
+                </p>
+
+                <div class="tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">Pandas</span>
+                    <span class="tag">Matplotlib</span>
+                    <span class="tag">EDA</span>
+                </div>
+
+                <a class="project-link"
+                   href="https://github.com/MahmoudTheAnalyst1/Global-Superstore-Business-Analysis"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    VIEW PROJECT ↗
+                </a>
+
+            </div>
+
+        </article>
+
+        <!-- PROJECT 02 -->
+
+        <article class="project">
+
+            <div class="project-media">
+                <img
+                    src="https://raw.githubusercontent.com/MahmoudTheAnalyst1/Superstore-Sales-Profitability-Dashboard/main/images/images/images/Untitled%20design.png"
+                    alt="Superstore Power BI dashboard preview"
+                    loading="lazy">
+            </div>
+
+            <div class="project-info">
+
+                <div class="project-top">
+                    <span class="project-number">02 / POWER BI</span>
+                </div>
+
+                <h3>Superstore Sales &amp; Profitability Dashboard</h3>
+
+                <p>
+                    Developed an interactive Power BI project
+                    to analyze Superstore sales and profitability,
+                    identify business trends, and support better decisions.
+                </p>
+
+                <div class="tags">
+                    <span class="tag">Power BI</span>
+                    <span class="tag">Power Query</span>
+                    <span class="tag">DAX</span>
+                    <span class="tag">Data Visualization</span>
+                </div>
+
+                <a class="project-link"
+                   href="https://github.com/MahmoudTheAnalyst1/Superstore-Sales-Profitability-Dashboard"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    VIEW PROJECT ↗
+                </a>
+
+            </div>
+
+        </article>
+
+        <!-- PROJECT 03 -->
+
+        <article class="project">
+
+            <div class="project-media">
+                <img
+                    src="https://raw.githubusercontent.com/MahmoudTheAnalyst1/Adidas-Sales-Performance-Dashboard-Power-BI/main/Screenshot%202026-11-04%20085851.png"
+                    alt="Adidas sales performance Power BI dashboard preview"
+                    loading="lazy">
+            </div>
+
+            <div class="project-info">
+
+                <div class="project-top">
+                    <span class="project-number">03 / POWER BI</span>
+                </div>
+
+                <h3>Adidas Sales Performance Dashboard</h3>
+
+                <p>
+                    Created an interactive Power BI dashboard
+                    to explore Adidas sales performance, profitability,
+                    product and regional trends, and strategic recommendations.
+                </p>
+
+                <div class="tags">
+                    <span class="tag">Power BI</span>
+                    <span class="tag">DAX</span>
+                    <span class="tag">Power Query</span>
+                    <span class="tag">Dashboard Design</span>
+                </div>
+
+                <a class="project-link"
+                   href="https://github.com/MahmoudTheAnalyst1/Adidas-Sales-Performance-Dashboard-Power-BI"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    VIEW PROJECT ↗
+                </a>
+
+            </div>
+
+        </article>
+
+        <!-- PROJECT 04 -->
+
+        <article class="project">
+
+            <div class="project-media">
+                <div class="cover">
+                    <span class="cover-label">Python / Web Scraping</span>
+                    <strong>AMAZON<br>PRODUCT DATA</strong>
+                    <small>Collect · Parse · Export CSV</small>
+                </div>
+            </div>
+
+            <div class="project-info">
+
+                <div class="project-top">
+                    <span class="project-number">04 / WEB SCRAPING</span>
+                </div>
+
+                <h3>Amazon Web Scraping</h3>
+
+                <p>
+                    Collected product information from Amazon Egypt
+                    using Requests and BeautifulSoup, then organized
+                    the extracted data into a CSV file.
+                </p>
+
+                <div class="tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">Requests</span>
+                    <span class="tag">BeautifulSoup</span>
+                    <span class="tag">CSV</span>
+                </div>
+
+                <a class="project-link"
+                   href="https://github.com/MahmoudTheAnalyst1/Amazon-Web-Scraping"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    VIEW PROJECT ↗
+                </a>
+
+            </div>
+
+        </article>
+
+        <!-- PROJECT 05 -->
+
+        <article class="project">
+
+            <div class="project-media">
+                <div class="cover">
+                    <span class="cover-label">Python / Sales Analysis</span>
+                    <strong>SUPERSTORE<br>SALES</strong>
+                    <small>Category · Region · Customer</small>
+                </div>
+            </div>
+
+            <div class="project-info">
+
+                <div class="project-top">
+                    <span class="project-number">05 / ANALYSIS</span>
+                </div>
+
+                <h3>Superstore Sales Analysis</h3>
+
+                <p>
+                    Analyzed Superstore sales data to understand
+                    performance across categories, regions, segments,
+                    customers, and products through exploratory
+                    analysis and visualizations.
+                </p>
+
+                <div class="tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">Pandas</span>
+                    <span class="tag">NumPy</span>
+                    <span class="tag">Matplotlib</span>
+                </div>
+
+                <a class="project-link"
+                   href="https://github.com/MahmoudTheAnalyst1/Superstore-Sales-Analysis"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    VIEW PROJECT ↗
+                </a>
+
+            </div>
+
+        </article>
+
+        <!-- PROJECT 06 -->
+
+        <article class="project">
+
+            <div class="project-media">
+                <div class="cover">
+                    <span class="cover-label">Python / EDA</span>
+                    <strong>MOVIES<br>DATA</strong>
+                    <small>7,668 movies explored</small>
+                </div>
+            </div>
+
+            <div class="project-info">
+
+                <div class="project-top">
+                    <span class="project-number">06 / ANALYSIS</span>
+                </div>
+
+                <h3>Movies Data Analysis</h3>
+
+                <p>
+                    Cleaned and explored a dataset of 7,668 movies,
+                    examining genres, ratings, votes, budgets,
+                    gross revenue, and yearly trends.
+                </p>
+
+                <div class="tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">Pandas</span>
+                    <span class="tag">NumPy</span>
+                    <span class="tag">Matplotlib</span>
+                </div>
+
+                <a class="project-link"
+                   href="https://github.com/MahmoudTheAnalyst1/Movies-Data-Analysis"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    VIEW PROJECT ↗
+                </a>
+
+            </div>
+
+        </article>
+
+        <!-- PROJECT 07 -->
+
+        <article class="project">
+
+            <div class="project-media">
+                <div class="cover">
+                    <span class="cover-label">Python / Data Cleaning</span>
+                    <strong>CUSTOMER<br>DATA</strong>
+                    <small>Clean · Standardize · Prepare</small>
+                </div>
+            </div>
+
+            <div class="project-info">
+
+                <div class="project-top">
+                    <span class="project-number">07 / DATA CLEANING</span>
+                </div>
+
+                <h3>Customer Data Cleaning with Pandas</h3>
+
+                <p>
+                    Cleaned and prepared customer data using Python
+                    and Pandas, handling missing and invalid values
+                    and splitting address information into structured fields.
+                </p>
+
+                <div class="tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">Pandas</span>
+                    <span class="tag">Data Cleaning</span>
+                </div>
+
+                <a class="project-link"
+                   href="https://github.com/MahmoudTheAnalyst1/Customer-Data-Cleaning-with-Pandas"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    VIEW PROJECT ↗
+                </a>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+<!-- WORKFLOW -->
+
+<section id="workflow">
+
+    <div class="section-head">
+
+        <div class="section-no">04 / WORKFLOW</div>
+
+        <div>
+            <h2>From raw data<br>to clear insights.</h2>
+
+            <p class="section-intro">
+                A structured approach to solving data problems.
+            </p>
+        </div>
+
+    </div>
+
+    <div class="workflow">
+
+        <div class="step">
+            <small>STEP 01</small>
+            <h3>Understand</h3>
+            <p>Define the business question and understand the source data.</p>
+        </div>
+
+        <div class="step">
+            <small>STEP 02</small>
+            <h3>Prepare</h3>
+            <p>Inspect, clean, and transform data for reliable analysis.</p>
+        </div>
+
+        <div class="step">
+            <small>STEP 03</small>
+            <h3>Analyze</h3>
+            <p>Explore patterns, compare performance, and identify insights.</p>
+        </div>
+
+        <div class="step">
+            <small>STEP 04</small>
+            <h3>Communicate</h3>
+            <p>Present findings through clear reports and interactive dashboards.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+    <div class="section-head">
+
+        <div class="section-no">05 / CONTACT</div>
+
+        <div>
+            <h2>Let's connect.</h2>
+
+            <p class="section-intro">
+                Interested in data analytics opportunities,
+                freelance projects, or collaboration.
+            </p>
+        </div>
+
+    </div>
+
+    <div class="contact-panel">
+
+        <div>
+            <h3>Have a data project<br>in mind?</h3>
+
+            <p>
+                Explore my work or connect with me on GitHub and LinkedIn.
+            </p>
+        </div>
+
+        <div class="actions">
+
+            <a class="btn"
+               href="https://github.com/MahmoudTheAnalyst1"
+               target="_blank"
+               rel="noopener noreferrer">
+                GitHub ↗
+            </a>
+
+            <a class="btn secondary"
+               href="https://www.linkedin.com/in/mahmoud-naguip/"
+               target="_blank"
+               rel="noopener noreferrer">
+                LinkedIn ↗
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+    <span>© 2026 Mahmoud Naguib. All rights reserved.</span>
+    <span>Designed for data-driven thinking.</span>
+</footer>
+
+</main>
+
+</body>
+</html>
