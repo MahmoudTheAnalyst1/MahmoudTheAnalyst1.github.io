@@ -618,6 +618,69 @@ footer {
         font-size: 50px;
     }
 }
+
+/* REFINED PORTFOLIO DESIGN */
+body {
+    background:
+        radial-gradient(ellipse at 82% 9%, rgba(196,244,91,.075), transparent 31%),
+        radial-gradient(ellipse at 20% 65%, rgba(196,244,91,.035), transparent 34%),
+        var(--bg);
+}
+.sidebar { background: rgba(14,16,13,.94); backdrop-filter: blur(16px); }
+.brand { font-size: 19px; letter-spacing: -.7px; line-height: 1.25; }
+.brand span { color: var(--accent); }
+.sidebar-link {
+    display: inline-flex; width: max-content; margin-top: 28px; padding: 9px 12px;
+    border: 1px solid #39422d; color: var(--accent); font-size: 11px;
+    letter-spacing: .5px; transition: .2s;
+}
+.sidebar-link:hover { background: rgba(196,244,91,.09); border-color: var(--accent); }
+.hero { position: relative; min-height: 700px; }
+.hero > div { position: relative; z-index: 1; }
+.hero::after {
+    content: "DATA\\A INSIGHTS"; white-space: pre; position: absolute; right: 0; bottom: 85px;
+    color: rgba(242,243,237,.035); font-size: clamp(70px, 12vw, 170px);
+    font-weight: 900; letter-spacing: -10px; line-height: .82; text-align: right; pointer-events: none;
+}
+.hero h1 { font-size: clamp(62px, 8.5vw, 112px); letter-spacing: -7px; }
+.hero .job { color: var(--accent); font-weight: 600; }
+.eyebrow { display: flex; align-items: center; gap: 12px; }
+.eyebrow::before { content: ""; width: 28px; height: 1px; background: var(--accent); }
+.btn { border-radius: 3px; min-height: 46px; }
+section { padding: 112px 0; }
+.fact, .skill, .step, .contact-panel, .project { border-radius: 5px; }
+.fact, .skill { transition: transform .2s, border-color .2s, background .2s; }
+.fact:hover, .skill:hover { transform: translateY(-3px); border-color: #647c3a; background: #151a11; }
+.projects { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.project { grid-template-columns: 1fr; gap: 0; padding: 12px; border-radius: 6px; }
+.project-media { min-height: 0; aspect-ratio: 16 / 9; border-radius: 3px; }
+.project-media img { min-height: 0; max-height: none; height: 100%; }
+.project-info { padding: 22px 12px 15px; }
+.project h3 { min-height: 2.4em; }
+.project p { min-height: 4.5em; }
+.project-link { margin-top: 22px; }
+.tag { border-radius: 2px; }
+.contact-panel {
+    background: linear-gradient(115deg, rgba(196,244,91,.075), transparent 58%), var(--panel);
+    padding: 48px;
+}
+footer { border-top: 1px solid rgba(255,255,255,.025); }
+@media(max-width: 1000px) {
+    .projects { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .hero::after { font-size: 90px; }
+}
+@media(max-width: 700px) {
+    .brand { font-size: 18px; }
+    .sidebar-link { margin-top: 12px; }
+    .hero { min-height: 570px; }
+    .hero::after { right: 0; bottom: 50px; font-size: 65px; letter-spacing: -5px; }
+    .hero h1 { letter-spacing: -4px; }
+    section { padding: 78px 0; }
+    .projects { grid-template-columns: 1fr; }
+    .project h3, .project p { min-height: 0; }
+    .contact-panel { padding: 28px; }
+}
+
 </style>
 </head>
 
@@ -625,7 +688,7 @@ footer {
 
 <aside class="sidebar">
 
-    <a class="brand" href="#home">MN<span>.</span></a>
+    <a class="brand" href="#home">Mahmoud <span>Naguib.</span></a>
 
     <div class="role-small">Data Analyst</div>
 
@@ -637,6 +700,8 @@ footer {
         <a href="#workflow">Workflow</a>
         <a href="#contact">Contact</a>
     </nav>
+
+    <a class="sidebar-link" href="https://www.linkedin.com/in/mahmoud-naguip/" target="_blank" rel="noopener noreferrer">LinkedIn Profile ↗</a>
 
     <div class="side-bottom">
         <span class="status"></span>Open to opportunities
@@ -677,6 +742,13 @@ footer {
                target="_blank"
                rel="noopener noreferrer">
                 GitHub Profile ↗
+            </a>
+
+            <a class="btn secondary"
+               href="https://www.linkedin.com/in/mahmoud-naguip/"
+               target="_blank"
+               rel="noopener noreferrer">
+                LinkedIn ↗
             </a>
         </div>
 
